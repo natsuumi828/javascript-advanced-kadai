@@ -94,6 +94,7 @@ return `${score}文字打てました!\n${text}\n【OK】リトライ / 【キ�
 //ゲームを終了
 const gameOver = id => {
   clearInterval(id);
+  untypedfield.textContent = 'タイムアップ！';
   const result = confirm(rankCheck(score));
 
  // OKボタンをクリックされたらリロードする
@@ -123,7 +124,7 @@ const timer = () => {
 //ゲームスタート時の処理
 start.addEventListener('click', () => {
   
-  //カウントが０になったらタイプアップを用事する
+  //タイムカウント０の時に表示する
   setTimeout(() => {
     untypedfield.textContent = 'タイムアップ！';
     typedfield.style.display = 'none';
